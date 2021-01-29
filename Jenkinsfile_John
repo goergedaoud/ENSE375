@@ -20,6 +20,11 @@ pipeline {
             steps {
                 sh 'mvn -f ./RiskMeter test'
             }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
         }
         /*
         stage('Push') {
