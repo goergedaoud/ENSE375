@@ -20,6 +20,7 @@ pipeline {
             steps {
                 sh 'mvn -f ./RiskMeter test'
             }
+	}
         stage('Push') {
             steps {
 		    sshagent (credentials: ["121a2089-cb31-4727-9787-f94dc66aaaa1"]){
@@ -31,7 +32,6 @@ pipeline {
 		        sh " git commit -m 'test results'"
 		    	sh " git push origin Patient_branch"
     	      }
-    	    }
 	 }
       }
    }
