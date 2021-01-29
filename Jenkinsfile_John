@@ -29,7 +29,7 @@ pipeline {
 		        sh " git add RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt"
 		        sh " git add RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.xml"
 		        sh " git commit -m 'test results'"
-		    	sh " git push https://github.com/goergedaoud/ENSE375.git  -f
+		    	sh " git push origin Patient_branch"
     	      }
     	    }
 	 }
