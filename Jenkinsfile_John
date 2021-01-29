@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Build') {     // build the project ./RiskMeter without runing any test  
         	steps{
-    			sh "mvn -DskipTests -f ./RiskMeter clean package"
+    			sh "mvn -DskipTests -f ./RiskMeter package"
     		}
         }
        stage('Test') {
