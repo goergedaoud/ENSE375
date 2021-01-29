@@ -24,7 +24,7 @@ pipeline {
         stage('Push') {
             steps {
 		    sshagent (credentials: ["121a2089-cb31-4727-9787-f94dc66aaaa1"]){	
-		    	sh " git rm --cached"
+		    	sh " git clean  -d  -f ."
 		    	sh " git checkout Patient_branch"
 		        sh 'git config --global user.email "goergedaoud@gmail.com"'
 		        sh 'git config --global user.name "goergedaoud"'
