@@ -8,6 +8,7 @@ pipeline {
             steps {
                 sh '''
                     echo "Hello from Jenkins"
+		    sh " git clean  -d  -f ."
 		    git checkout Patient_branch
                 ''' 
             }
