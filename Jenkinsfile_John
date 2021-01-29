@@ -6,7 +6,6 @@ pipeline {
     stages {
     	stage ('Initialize') { // hello Jenkins
             steps {
-	   	 echo env.GIT_BRANCH
                 sh '''
                     echo "Hello from Jenkins"
                 ''' 
