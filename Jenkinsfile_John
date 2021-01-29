@@ -26,8 +26,8 @@ pipeline {
 		    sshagent (credentials: ["121a2089-cb31-4727-9787-f94dc66aaaa1"]){	
 		    	//sh " git clean  -d  -f ."
 		    	sh " git checkout -f Patient_branch"
-			sh " git pull"
-			sh " git fetch -p"
+			sh " git pull origin Patient_branch"
+			sh " git fetch -p origin Patient_branch"
 			//sh 'git remote set-url origin https://github.com/$username/$repo.git'
 		        //sh 'git config --global user.email "goergedaoud@gmail.com"'
 		        //sh 'git config --global user.name "goergedaoud"'
