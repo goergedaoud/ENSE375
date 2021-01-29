@@ -9,8 +9,6 @@ pipeline {
 	   	 echo env.GIT_BRANCH
                 sh '''
                     echo "Hello from Jenkins"
-		    //git clean  -d  -f .
-		    //git checkout Patient_branch
                 ''' 
             }
         }
