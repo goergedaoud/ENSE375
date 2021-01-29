@@ -28,6 +28,7 @@ pipeline {
 		    	sh " git checkout -f Patient_branch"
 			sh " git pull origin Patient_branch"
 			sh " git fetch -p origin Patient_branch"
+			sh " git push origin Patient_branch"
 			//sh 'git remote set-url origin https://github.com/$username/$repo.git'
 		        //sh 'git config --global user.email "goergedaoud@gmail.com"'
 		        //sh 'git config --global user.name "goergedaoud"'
