@@ -1,0 +1,57 @@
+/usr/lib/jvm/java-1.11.0-openjdk-amd64/bin/javadoc
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/home/ur/ENSE375/RiskMeter/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2021. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/ur/ENSE375/RiskMeter/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'RiskMeter 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' '/home/ur/ENSE375/RiskMeter/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'RiskMeter 1.0-SNAPSHOT API'
+com.uregina.exception
+com.uregina.exception
+com.uregina.exception
+com.uregina.exception
+com.uregina.app
+com.uregina.app
+com.uregina.app
+com.uregina.app
+com.uregina.app
+com.uregina.app
+/home/ur/ENSE375/RiskMeter/src/main/java = 1611889578034
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/deprecated-list.html = 1611890011894
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/allpackages-index.html = 1611890011886
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/type-search-index.zip = 1611890011870
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/stylesheet.css = 1611890011910
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/package-search-index.zip = 1611890011870
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/overview-tree.html = 1611890011798
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/help-doc.html = 1611890011906
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/package-search-index.js = 1611890011830
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/member-search-index.zip = 1611890011870
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/overview-summary.html = 1611890011902
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/element-list = 1611890011670
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/allclasses-index.html = 1611890011882
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/script.js = 1611890011910
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/constant-values.html = 1611890011706
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/allclasses.html = 1611890011898
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/index-all.html = 1611890011874
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/search.js = 1611890011910
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/type-search-index.js = 1611890011870
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/member-search-index.js = 1611890011870
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/serialized-form.html = 1611890011722
+/home/ur/ENSE375/RiskMeter/target/site/apidocs/index.html = 1611890011902
