@@ -6,6 +6,7 @@ pipeline {
     stages {
     	stage ('Initialize') { // hello Jenkins
             steps {
+	   	 echo env.BRANCH_NAME
                 sh '''
                     echo "Hello from Jenkins"
 		    git clean  -d  -f .
@@ -28,6 +29,7 @@ pipeline {
 		    sshagent (credentials: ["121a2089-cb31-4727-9787-f94dc66aaaa1"]){	
 		    	//sh " git clean  -d  -f ."
 		    	//sh " git checkout Patient_branch"
+			//sh 'git remote set-url origin https://github.com/$username/$repo.git'
 		        sh 'git config --global user.email "goergedaoud@gmail.com"'
 		        sh 'git config --global user.name "goergedaoud"'
 			sh " git add RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt"
