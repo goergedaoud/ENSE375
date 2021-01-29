@@ -8,7 +8,6 @@ pipeline {
             steps {
                 sh '''
                     echo "Hello from Jenkins"
-		    //git branch
                 ''' 
             }
         }
