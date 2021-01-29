@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    tools { 
+        maven 'Maven'
+    }
+    stages {
+    	stage ('Initialize') { // hello Jenkins
+            steps {
+                sh '''
+                    echo "Hello from Jenkins"
+                ''' 
+            }
+        }
+        stage('Build') {     // build the project ./RiskMeter without runing any test  
+        	steps{
+    			sh "mvn -DskipTests -f ./RiskMeter clean package"
+    		}
+        }
+       /* stage('Test') {
+            steps {
+                sh 'mvn -f ./RiskMeter test'
+            }
+        }
+        stage('Push') {
+            steps {
+		    sshagent (credentials: ["121a2089-cb31-4727-9787-f94dc66aaaa1"]){
+		    	sh "git checkout master"
+		    	sh 'git config --global user.email "goergedaoud@gmail.com"'
+		        sh 'git config --global user.name "goergedaoud"'
+		    	sh "git push https://github.com/goergedaoud/ENSE375.git  -f"
+	    	}
+    	    }
+	 }*/
+      }
+   }
+
