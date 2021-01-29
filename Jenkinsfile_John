@@ -28,7 +28,7 @@ pipeline {
 		    	//sh 'git config --global user.email "goergedaoud@gmail.com"'
 		        //sh 'git config --global user.name "goergedaoud"'
 		        sh " git add RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt"
-		        sh " git add RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.xml"
+		        sh " git add RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml"
 		        sh " git commit -m 'test results'"
 		    	sh " git push origin Patient_branch"
     	      }
