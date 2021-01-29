@@ -22,7 +22,7 @@ pipeline {
             }
             post {
                 always {
-                    junit '/RiskMeter/target/surefire-reports/*.xml'
+                    junit 'RiskMeter/target/surefire-reports/*.xml'
                 }
             }
         }
