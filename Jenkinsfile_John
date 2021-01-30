@@ -27,8 +27,8 @@ pipeline {
             }
 	}
 	stage('merge with main branch') {steps{
-	    withCredentials([sshUserPrivateKey(credentialsId: '121a2089-cb31-4727-9787-f94dc66aaaa1', keyFileVariable: 'KEY_FILE')]) {    
-                sh '''
+	sshagent(credentials: ['121a2089-cb31-4727-9787-f94dc66aaaa1']) {
+	sh '''
 		git add ./RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
 		git add ./RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt
 		git commit -m 'adding patient test result'
