@@ -21,6 +21,11 @@ pipeline {
                 sh 'mvn -f ./RiskMeter -Dtest=!App* test'
             }
 	}
+	stage('integration Test') {
+            steps {
+                sh 'mvn -f ./RiskMeter -Dtest=App* test'
+            }
+	}
   }
 } 
 
