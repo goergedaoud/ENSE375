@@ -26,7 +26,8 @@ pipeline {
             }
 	}
 	stage('merge with main branch') {steps{
-	  withCredentials([string(credentialsId: '121a2089-cb31-4727-9787-f94dc66aaaa1', variable: 'TOKEN')]) {
+	  withCredentials([usernameColonPassword(credentialsId: '121a2089-cb31-4727-9787-f94dc66aaaa1', variable: 'USERPASS')]) {
+  
 	  sh '''
 		git config --global user.name
 		git config --global user.email
