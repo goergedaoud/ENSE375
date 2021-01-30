@@ -2,12 +2,17 @@ pipeline {
     agent any
     tools { 
         maven 'Maven'
+	//Docker 'docker'
     }
     stages {
     	stage ('Initialize') { // hello Jenkins
             steps {
                 sh '''
                     echo "Hello from Jenkins"
+		    git checkout -f Patient_branch
+		    git pull origin Patient_branch
+		    cat tt.txt 
+		    docker --version
                 ''' 
             }
         }
@@ -16,29 +21,42 @@ pipeline {
     			sh "mvn -DskipTests -f ./RiskMeter package"
     		}
         }
-       stage('Test') {
+       stage('unit Test') {
             steps {
-                sh 'mvn -f ./RiskMeter test'
+                sh 'mvn -f ./RiskMeter -Dtest=!App* test'
             }
 	}
-        stage('Push') {
+	stage('integration Test') {
             steps {
-		    sshagent (credentials: ["121a2089-cb31-4727-9787-f94dc66aaaa1"]){	
-		    	//sh " git clean  -d  -f ."
-		    	sh " git checkout -f Patient_branch"
-			sh " git pull origin Patient_branch"
-			sh " git fetch -p origin Patient_branch"
-			sh " git push origin Patient_branch"
-			//sh 'git remote set-url origin https://github.com/$username/$repo.git'
-		        //sh 'git config --global user.email "goergedaoud@gmail.com"'
-		        //sh 'git config --global user.name "goergedaoud"'
-			sh " git add RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt"
-		        sh " git add RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml"
-		        sh " git commit -m 'test results'"
-		    	sh " git push origin Patient_branch"
-    	      }
-	 }
-      }
-   }
-  } 
+                sh 'mvn -f ./RiskMeter -Dtest=App* test'
+            }
+	}
+	stage('deploy')
+	{
+		steps{
+		
+
+
+			
+				sh " docker build -t goergedaoud/test:myimage2 ."
+				sh " docker images"
+				script {
+                    docker.withRegistry( '', '121a2089-cb31-4727-9787-f94dc66aaaa1' ) {
+                        sh " docker push goergedaoud/test:myimage2 "
+                    }
+                } 
+                        
+              
+				
+				}
+	}
+	
+	stage('run')
+	{
+		steps{
+			echo 'sh "java -cp ./RiskMeter/target/RiskMeter-1.0-SNAPSHOT.jar com.uregina.app.App"'
+		}
+	}
+  }
+} 
 
