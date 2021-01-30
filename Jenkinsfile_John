@@ -27,7 +27,7 @@ pipeline {
             }
 	}
 	stage('merge with main branch') {steps{
-            sshagent(credentials: ['121a2089-cb31-4727-9787-f94dc66aaaa1']) {
+	    withCredentials([sshUserPrivateKey(credentialsId: '121a2089-cb31-4727-9787-f94dc66aaaa1', keyFileVariable: 'KEY_FILE')]) {    
                 sh '''
 		git add ./RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
 		git add ./RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt
