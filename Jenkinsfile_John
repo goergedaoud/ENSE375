@@ -34,7 +34,10 @@ pipeline {
 		git add ./RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
 		git add ./RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt
 		git commit -m 'update delete' 
-		git push origin Patient_branch
+		git push https://github.com/goergedaoud/ENSE375.git Patient_branch
+		git config --global user.name "goergedaoud"
+		git config --global user.email "goergedaoud@gmail.com"
+		git remote set-url origin "https://github.com/goergedaoud/ENSE375.git"
 		git push origin Patient_branch
 		git checkout -f main
 		git pull origin main
@@ -43,9 +46,8 @@ pipeline {
 		'''
 		}
 		/*
-		git config --global user.name "goergedaoud"
-		git config --global user.email "goergedaoud@gmail.com"
-		git remote set-url origin "https://github.com/goergedaoud/ENSE375.git"
+		3aeAAA8788edc48038eca5db5ccc00fb8a403cc5337
+		
 		
 		*/
             }
