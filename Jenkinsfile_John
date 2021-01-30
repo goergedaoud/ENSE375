@@ -51,7 +51,7 @@ pipeline {
 	stage('run')
 	{
 		steps{
-			sh "java -cp ./RiskMeter/target/RiskMeter-1.0-SNAPSHOT.jar com.uregina.app.App"
+			echo 'sh "java -cp ./RiskMeter/target/RiskMeter-1.0-SNAPSHOT.jar com.uregina.app.App"'
 		}
 	}
   }
