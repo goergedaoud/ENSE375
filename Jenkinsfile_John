@@ -51,7 +51,7 @@ pipeline {
 	stage('run')
 	{
 		steps{
-			echo " docker run -i myimage2 "
+			sh "java -cp target/RiskMeter-1.0-SNAPSHOT.jar com.uregina.app.App"
 		}
 	}
   }
