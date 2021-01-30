@@ -31,7 +31,7 @@ pipeline {
 		git add ./RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
 		git add ./RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt
 		git commit -m 'adding patient test result'
-		git config --global url."https://github.com/goergedaoud/ENSE375.git"
+		git config --global url "https://github.com/goergedaoud/ENSE375.git"
 		git config --global user.name "goergedaoud"
 		git config --global user.email "goergedaoud@gmail.com"
 		git push origin Patient_branch
