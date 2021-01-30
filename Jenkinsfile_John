@@ -11,7 +11,6 @@ pipeline {
                     echo "Hello from Jenkins"
 		    git checkout -f Patient_branch
 		    git pull origin Patient_branch
-		    cat tt.txt 
 		    docker --version
                 ''' 
             }
