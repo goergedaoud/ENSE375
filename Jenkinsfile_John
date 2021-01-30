@@ -10,7 +10,7 @@ pipeline {
                 sh '''
                     echo "Hello from Jenkins"
 		    git checkout -f Patient_branch
-		    sh" cat 
+		    cat tt.txt 
 		    docker --version
                 ''' 
             }
