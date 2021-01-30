@@ -36,7 +36,7 @@ pipeline {
 		}
 	}
 	
-	stage(deploy)
+	stage('run')
 	{
 		steps{
 			sh " docker run -it myimage2 "
