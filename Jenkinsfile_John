@@ -33,8 +33,8 @@ pipeline {
 		git remote -v
 		git add ./RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
 		git add ./RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt
-		git commit -m 'adding patient test result'
-		
+		git commit -m 'https://github.com/goergedaoud/ENSE375.git' Patient_branch
+		git push git://github.com/them/repository.git theirbranch
 		git config --global user.name "goergedaoud"
 		git config --global user.email "goergedaoud@gmail.com"
 		git remote set-url origin "https://github.com/goergedaoud/ENSE375.git"
