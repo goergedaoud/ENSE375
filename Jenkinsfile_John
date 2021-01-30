@@ -35,7 +35,7 @@ pipeline {
 				sh " docker build -t goergedaoud/test:myimage2 ."
 				sh " docker images"
 						script { 
-	             docker.withRegistry( '', registryCredential ) { 
+	             docker.withRegistry( '121a2089-cb31-4727-9787-f94dc66aaaa1', registryCredential ) { 
                         sh " docker push goergedaoud/test:myimage2 "
                     }
                 } 
