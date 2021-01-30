@@ -26,7 +26,7 @@ pipeline {
             }
 	}
 	stage('merge with main branch') {steps{
-	  sshagent (credentials: ['github']){
+	  sshagent (credentials: ['goergedaoud']){
 	  sh '''
 		git config --global user.name
 		git config --global user.email
