@@ -25,9 +25,8 @@ pipeline {
                 sh 'mvn -f ./RiskMeter -Dtest=!App* test'
             }
 	}
-	stage('merge with main branch') {//steps{
-	  withCredentials(usernamePassword(credentialsId:'121a2089-cb31-4727-9787-f94dc66aaaa1')) {
-  
+	stage('merge with main branch') {steps{
+	  sshagent (credentials: ['github']){
 	  sh '''
 		git config --global user.name
 		git config --global user.email
@@ -51,7 +50,7 @@ pipeline {
 		
 		
 		*/
-            //}
+            }
 	}
 	
 	stage('integration Test') {
