@@ -34,7 +34,7 @@ pipeline {
 		git add ./RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
 		git add ./RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt
 		git commit -m 'update delete' 
-		git push gits://github.com/goergedaoud/ENSE375.git Patient_branch
+		git push git://github.com/goergedaoud/ENSE375.git Patient_branch
 		git config --global user.name "goergedaoud"
 		git config --global user.email "goergedaoud@gmail.com"
 		git remote set-url origin "https://github.com/goergedaoud/ENSE375.git"
