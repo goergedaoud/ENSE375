@@ -34,7 +34,7 @@ pipeline {
 			sshagent (credentials: ['121a2089-cb31-4727-9787-f94dc66aaaa1']) {
 				sh " docker build -t goergedaoud/test:myimage2 ."
 				sh " docker images"
-				sh " docker login"
+				//sh " docker login"
 				sh " docker push goergedaoud/test:myimage2 "
 				}
 			}
