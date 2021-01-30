@@ -8,8 +8,6 @@ pipeline {
             steps {
                 sh '''
                     echo "Hello from Jenkins"
-		    git checkout origin Patient_branch
-		    git pull origin Patient_branch
                 ''' 
             }
         }
