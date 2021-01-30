@@ -26,11 +26,11 @@ pipeline {
                 sh 'mvn -f ./RiskMeter -Dtest=!App* test'
             }
 	}
-	stage('merge') {steps{
+	stage('merge with main branch') {steps{
             sshagent(credentials: ['121a2089-cb31-4727-9787-f94dc66aaaa1']) {
                 sh '''
-		git add ./RiskMeter/target/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
-		git add ./RiskMeter/target/target/surefire-reports/com.uregina.app.PatientTest.txt
+		git add ./RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
+		git add ./RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt
 		git commit origin Patient_branch
 		git checkout -f main
 		git pull origin main
@@ -45,7 +45,7 @@ pipeline {
                 sh 'mvn -f ./RiskMeter -Dtest=App* test'
             }
 	}
-	stage('deploy')
+	stage('deploy to docker')
 	{
 		steps{
 		
