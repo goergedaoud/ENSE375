@@ -39,7 +39,7 @@ pipeline {
 	stage(deploy)
 	{
 		steps{
-			sh docker run -it myimage2
+			sh " docker run -it myimage2 "
 		}
 	}
   }
