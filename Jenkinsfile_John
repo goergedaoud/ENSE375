@@ -8,6 +8,8 @@ pipeline {
             steps {
                 sh '''
                     echo "Hello from Jenkins"
+		    git checkout origin Patient_branch
+		    git pull origin Patient_branch
                 ''' 
             }
         }
@@ -16,29 +18,11 @@ pipeline {
     			sh "mvn -DskipTests -f ./RiskMeter package"
     		}
         }
-       stage('Test') {
+       stage('unit Test') {
             steps {
-                sh 'mvn -f ./RiskMeter test'
+                sh 'mvn -f ./RiskMeter -Dtest=!App* test'
             }
 	}
-        stage('Push') {
-            steps {
-		    sshagent (credentials: ["121a2089-cb31-4727-9787-f94dc66aaaa1"]){	
-		    	//sh " git clean  -d  -f ."
-		    	sh " git checkout -f Patient_branch"
-			sh " git pull origin Patient_branch"
-			sh " git fetch -p origin Patient_branch"
-			sh " git push origin Patient_branch"
-			//sh 'git remote set-url origin https://github.com/$username/$repo.git'
-		        //sh 'git config --global user.email "goergedaoud@gmail.com"'
-		        //sh 'git config --global user.name "goergedaoud"'
-			sh " git add RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt"
-		        sh " git add RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml"
-		        sh " git commit -m 'test results'"
-		    	sh " git push origin Patient_branch"
-    	      }
-	 }
-      }
-   }
-  } 
+  }
+} 
 
