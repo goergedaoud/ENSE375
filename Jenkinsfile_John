@@ -39,7 +39,7 @@ pipeline {
 	stage('run')
 	{
 		steps{
-			sh " docker run -it myimage2 "
+			sh " docker run -i myimage2 "
 		}
 	}
   }
