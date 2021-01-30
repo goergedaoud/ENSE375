@@ -31,10 +31,12 @@ pipeline {
                 sh '''
 		git add ./RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
 		git add ./RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt
-		git commit origin Patient_branch
+		git commit Patient_branch
+		git push origin Patient_branch
 		git checkout -f main
 		git pull origin main
 		git merge Patient_branch
+		git push origin main
 		'''
 		}
             }
