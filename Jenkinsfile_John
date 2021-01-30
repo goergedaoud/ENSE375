@@ -31,7 +31,7 @@ pipeline {
                 sh '''
 		git add ./RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
 		git add ./RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt
-		git commit Patient_branch
+		git commit -m 'adding patient test result'
 		git push origin Patient_branch
 		git checkout -f main
 		git pull origin main
