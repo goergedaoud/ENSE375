@@ -28,6 +28,12 @@ pipeline {
                 sh 'mvn -f ./RiskMeter -Dtest=App* test'
             }
 	}
+	stage(deploy)
+	{
+		steps{
+			sh " docker build -t myimage:latest ./RiskMeter"
+		}
+	}
   }
 } 
 
