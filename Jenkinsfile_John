@@ -26,7 +26,7 @@ pipeline {
             }
 	}
 	stage('merge with main branch') {steps{
-	  //sshagent (credentials: ['github']){
+	  sshagent (credentials: ['goergedaoud']){
 	  sh '''
 		git config --global user.name
 		git config --global user.email
@@ -44,7 +44,7 @@ pipeline {
 		git merge Patient_branch
 		git push origin main
 		'''
-		//}
+		}
 		/*
 		3aeAAA8788edc48038eca5db5ccc00fb8a403cc5337
 		
