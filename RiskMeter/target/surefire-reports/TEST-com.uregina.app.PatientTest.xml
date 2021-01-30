@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/opt/java/openjdk/lib"/>
-    <property name="sun.java.command" value="/var/jenkins_home/workspace/ENSE375_CI/./RiskMeter/target/surefire/surefirebooter6451230369192134790.jar /var/jenkins_home/workspace/ENSE375_CI/RiskMeter/target/surefire 2021-01-30T13-51-23_117-jvmRun1 surefire8510548895086501237tmp surefire_02512006009836811810tmp"/>
+    <property name="sun.java.command" value="/var/jenkins_home/workspace/ENSE375_CI/./RiskMeter/target/surefire/surefirebooter8252248661990012872.jar /var/jenkins_home/workspace/ENSE375_CI/RiskMeter/target/surefire 2021-01-30T13-52-18_722-jvmRun1 surefire17162338961448383967tmp surefire_05269158538420842760tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="!App*"/>
     <property name="surefire.test.class.path" value="/var/jenkins_home/workspace/ENSE375_CI/./RiskMeter/target/test-classes:/var/jenkins_home/workspace/ENSE375_CI/./RiskMeter/target/classes:/var/jenkins_home/.m2/repository/junit/junit/4.11/junit-4.11.jar:/var/jenkins_home/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
@@ -32,7 +32,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/var/jenkins_home/workspace/ENSE375_CI/./RiskMeter/target/surefire/surefirebooter6451230369192134790.jar"/>
+    <property name="surefire.real.class.path" value="/var/jenkins_home/workspace/ENSE375_CI/./RiskMeter/target/surefire/surefirebooter8252248661990012872.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.10+9"/>
     <property name="user.name" value="jenkins"/>
