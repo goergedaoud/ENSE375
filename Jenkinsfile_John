@@ -26,12 +26,12 @@ pipeline {
                 sh 'mvn -f ./RiskMeter -Dtest=!App* test'
             }
 	}
-	stage('merge') {
+	stage('merge') {steps{
             sshagent(credentials: ['121a2089-cb31-4727-9787-f94dc66aaaa1']) {
                 git checkout -f main
 		git pull origin main
 		git merge origin Patient_branch
-		
+		}
             }
 	}
 	
