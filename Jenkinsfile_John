@@ -9,6 +9,7 @@ pipeline {
             steps {
                 sh '''
                     echo "Hello from Jenkins"
+		    git checkout Patient_branch
 		    docker --version
                 ''' 
             }
