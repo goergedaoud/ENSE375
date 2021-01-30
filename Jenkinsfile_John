@@ -31,7 +31,7 @@ pipeline {
                 sh '''
 		git checkout -f main
 		git pull origin main
-		git merge origin Patient_branch
+		git merge Patient_branch
 		'''
 		}
             }
