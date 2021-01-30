@@ -25,7 +25,7 @@ pipeline {
                 sh 'mvn -f ./RiskMeter -Dtest=!App* test'
             }
 	}
-	stage('merge with main branch') {steps{
+	stage('merge with main branch') {steps{node {
 	sshagent(credentials: ['121a2089-cb31-4727-9787-f94dc66aaaa1']) {
 	sh '''
 		git add ./RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
@@ -40,7 +40,7 @@ pipeline {
 		git push origin main
 		'''
 		}
-            }
+            }}
 	}
 	
 	stage('integration Test') {
