@@ -2,12 +2,14 @@ pipeline {
     agent any
     tools { 
         maven 'Maven'
+	Docker 'docker'
     }
     stages {
     	stage ('Initialize') { // hello Jenkins
             steps {
                 sh '''
                     echo "Hello from Jenkins"
+		    docker --version
                 ''' 
             }
         }
