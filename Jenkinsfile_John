@@ -10,7 +10,6 @@ pipeline {
                 sh '''
                     echo "Hello from Jenkins"
                 ''' 
-            }
 	    }
         }
         stage('Build') {     // build the project ./RiskMeter without runing any test  
@@ -23,20 +22,22 @@ pipeline {
                 sh 'mvn -f ./RiskMeter -Dtest=!App* test'
             }
 	}
-	stage('merge with main branch') {steps{
-	withCredentials([usernamePassword(credentialsId: '121a2089-cb31-4727-9787-f94dc66aaaa1', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]){
-	  sh '''
-	  	git config --local credential.helper "!f() { echo username=\\$GIT_USERNAME; echo password=\\$GIT_PASSWORD; }; f"
-		git add ./RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
-		git add ./RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt
-		git commit -m 'update tests' 
-		git push origion HEAD:Patient_branch
-		git checkout -f main
-		git pull origin main
-		git merge Patient_branch
-		'''
+	stage('merge with main branch') {
+		steps{
+			withCredentials([usernamePassword(credentialsId: '121a2089-cb31-4727-9787-f94dc66aaaa1', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')])
+			{
+			  sh '''
+				git config --local credential.helper "!f() { echo username=\\$GIT_USERNAME; echo password=\\$GIT_PASSWORD; }; f"
+				git add ./RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
+				git add ./RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt
+				git commit -m 'update tests' 
+				git push origion HEAD:Patient_branch
+				git checkout -f main
+				git pull origin main
+				git merge Patient_branch
+			     '''
+			}
 		}
-            }
 	}
 	
 	stage('integration Test') {
