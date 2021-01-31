@@ -7,16 +7,16 @@ pipeline {
     stages {
     	stage ('Initialize') { // hello Jenkins
             steps {
+	    writeFile(file: 'zorg.txt', text: 'teteettete')
 	    withCredentials([usernamePassword(credentialsId: '121a2089-cb31-4727-9787-f94dc66aaaa1', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]){    
-  
+  		
                 sh '''
                     echo "Hello from Jenkins"
 		    git checkout -f Patient_branch
 		    git pull origin Patient_branch
 		    git config --local credential.helper "!f() { echo username=\\$GIT_USERNAME; echo password=\\$GIT_PASSWORD; }; f"
-		    cat "Some text here." > fgfg.txt
-		    git add fgfg.txt
-		    git commit -m 'teet'
+		    git add zorg.txt
+		    git commit -m 'zorg.txt'
                     git push origin HEAD:Patient_branch
                 ''' 
             }
