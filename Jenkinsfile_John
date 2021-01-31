@@ -38,18 +38,17 @@ pipeline {
 		git config --global user.name "goergedaoud"
 		git config --global user.email "goergedaoud@gmail.com"
 		git remote set-url origin "https://github.com/goergedaoud/ENSE375.git"
-		git push origin Patient_branch
+		git push
 		git checkout -f main
 		git pull origin main
 		git merge Patient_branch
 		git push origin main
 		'''
 		}
-		/*
-		3aeAAA8788edc48038eca5db5ccc00fb8a403cc5337
-		
-		
-		*/
+		/*withCredentials([usernamePassword(credentialsId: 'git-pass-credentials-ID', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+    sh("git tag -a some_tag -m 'Jenkins'")
+    sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@<REPO> --tags')
+}*/
             }
 	}
 	
