@@ -26,12 +26,13 @@ pipeline {
             }
 	}
 	stage('merge with main branch') {steps{
-	  sshagent (credentials: ['goergedaoud']){
+	withCredentials([usernamePassword(credentialsId: '121a2089-cb31-4727-9787-f94dc66aaaa1', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+	  //sshagent (credentials: ['goergedaoud']){
 	  sh '''
 		git config --global user.name
 		git config --global user.email
 		git remote remove origin
-		git remote add origin https://{username}:{password}@github.com/{username}/ENSE375.git
+		git remote add origin https://{GIT_USERNAME}:{GIT_PASSWORD}@github.com/{GIT_USERNAME}/ENSE375.git
 		git add ./RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
 		git add ./RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt
 		git commit -m 'update delete' 
@@ -46,7 +47,7 @@ pipeline {
 		git push origin main
 		'''
 		}
-		/*withCredentials([usernamePassword(credentialsId: 'git-pass-credentials-ID', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+		/*
     sh("git tag -a some_tag -m 'Jenkins'")
     sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@<REPO> --tags')
 }*/
