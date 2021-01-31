@@ -30,6 +30,7 @@ pipeline {
 	  sh '''
 		git config --global user.name
 		git config --global user.email
+		git remote remove origin
 		git remote add origin https://{username}:{password}@github.com/{username}/ENSE375.git
 		git add ./RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
 		git add ./RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt
