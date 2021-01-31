@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools { 
         maven 'Maven'
-	//Docker 'docker'
+	Docker 'docker'
     }
     stages {
     	stage ('Initialize') { // hello Jenkins
