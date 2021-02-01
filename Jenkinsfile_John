@@ -24,7 +24,7 @@ pipeline {
 	}
 	stage('merge with main branch') {
 		steps{
-			withCredentials([usernamePassword(credentialsId: '011c996e-bfb9-40a0-a101-03479b5dbeb6', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')])
+			withCredentials([usernamePassword(credentialsId: '121a2089-cb31-4727-9787-f94dc66aaaa1', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')])
 			{
 			  sh '''
 			  	git branch
@@ -62,7 +62,7 @@ pipeline {
 				sh " docker build -t goergedaoud/test:myimage2 ."
 				sh " docker images"
 				script {
-                    docker.withRegistry( '', '011c996e-bfb9-40a0-a101-03479b5dbeb6' ) {
+                    docker.withRegistry( '', '121a2089-cb31-4727-9787-f94dc66aaaa1' ) {
                         sh " docker push goergedaoud/test:myimage2 "
                     }
                 } 
