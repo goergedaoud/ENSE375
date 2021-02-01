@@ -32,9 +32,9 @@ pipeline {
 				git add ./RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt
 				git commit -m 'update tests' 
 				git push origin HEAD:Patient_branch
-				git checkout -f origin main
+				git checkout -f main
 				git pull origin main
-				git merge Patient_branch
+				git merge origin Patient_branch
 			     '''
 			}
 		}
