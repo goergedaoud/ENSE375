@@ -27,14 +27,19 @@ pipeline {
 			withCredentials([usernamePassword(credentialsId: '011c996e-bfb9-40a0-a101-03479b5dbeb6', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')])
 			{
 			  sh '''
+			  	git branch
 				git config --local credential.helper "!f() { echo username=\\$GIT_USERNAME; echo password=\\$GIT_PASSWORD; }; f"
 				git add ./RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
 				git add ./RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt
 				git commit -m 'update tests' 
 				git push origin HEAD:Patient_branch
+				git branch
 				git checkout -f main
+				git branch
 				git pull origin main
+				git branch
 				git merge origin Patient_branch
+				git branch
 			     '''
 			}
 		}
