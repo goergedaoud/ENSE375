@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    tools { 
+        maven 'Maven'
+    }
+    stages {
+    	stage ('Initialize') { // hello Jenkins
+            steps {	
+                sh '''
+                    echo "Hello from Jenkins"
+		                Docker version
+                ''' 
+	          }
+       }
+       stage('unit Test') {   // run all tests thatdon't start with App ( all unit tests)
+            steps {
+	    	        sh 'mvn -f ./RiskMeter -Dtest=!APP* test'
+             }
+	      }
+	      stage('integration Test') {
+            steps {
+                  sh 'mvn -f ./RiskMeter -Dtest=App* test'
+            }
+	      }
+        stage('deploy to docker')
+        {
+            steps{
+                sh " docker build -t goergedaoud/test:myimage2 ."
+                sh " docker images"
+                script {
+                    docker.withRegistry( '', '121a2089-cb31-4727-9787-f94dc66aaaa1' ) {
+                    sh " docker push goergedaoud/test:myimage2 "
+                }
+            } 
+        }
+    }
+} 
