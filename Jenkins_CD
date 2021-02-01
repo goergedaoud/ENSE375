@@ -25,11 +25,12 @@ pipeline {
         stage('deploy to docker')
         {
             steps{
-                sh " docker build -t goergedaoud/test:myimage2 ."
+                sh " docker build -t ENSE375/ENSE375:RiskMeter ."
                 sh " docker images"
                 script {
                     docker.withRegistry( '', '121a2089-cb31-4727-9787-f94dc66aaaa1' ) {
-                    sh " docker push goergedaoud/test:myimage2 "
+                    sh " docker push ENSE375/ENSE375:RiskMeter "
+		    }
                 }
             } 
         }
