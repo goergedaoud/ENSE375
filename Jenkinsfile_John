@@ -8,7 +8,6 @@ pipeline {
             steps {	
                 sh '''
                     echo "Hello from Jenkins"
-		    docker --version
                 ''' 
 	    }
         }
@@ -22,31 +21,28 @@ pipeline {
                 sh 'mvn -f ./RiskMeter -Dtest=!App* test'
             }
 	}
-	stage('merge with main branch') {
+	stage('push test results and merge with main branch') {
 		steps{
-			withCredentials([usernamePassword(credentialsId: '121a2089-cb31-4727-9787-f94dc66aaaa1', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')])
+			withCredentials([usernamePassword(credentialsId: '4224a225-4442-4e6c-8cc5-a897366db34a', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')])
 			{
 			  sh '''
-			  	git branch
-				git config --local credential.helper "!f() { echo username=\\$GIT_USERNAME; echo password=\\$GIT_PASSWORD; }; f"
+			  	git config --local credential.helper "!f() { echo username=\\$GIT_USERNAME; echo password=\\$GIT_PASSWORD; }; f"
 				git add ./RiskMeter/target/surefire-reports/TEST-com.uregina.app.PatientTest.xml
 				git add ./RiskMeter/target/surefire-reports/com.uregina.app.PatientTest.txt
 				git commit -m 'update tests' 
 				git push origin HEAD:Patient_branch
 				git checkout -f Patient_branch
 				git pull origin Patient_branch
-				git branch
 				git checkout -f main
-				git branch
 				git pull origin main
-				git branch
 				git merge Patient_branch
-				git branch
 			     '''
 			}
 		}
 	}
-	
+    }
+}
+	/*
 	stage('integration Test') {
             steps {
                 sh 'mvn -f ./RiskMeter -Dtest=App* test'
@@ -81,3 +77,4 @@ pipeline {
   }
 } 
 
+*/
