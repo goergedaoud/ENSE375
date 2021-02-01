@@ -40,7 +40,7 @@ pipeline {
 				git branch
 				git pull origin main
 				git branch
-				git merge origin Patient_branch
+				git merge Patient_branch
 				git branch
 			     '''
 			}
