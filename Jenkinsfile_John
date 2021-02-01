@@ -8,6 +8,7 @@ pipeline {
             steps {	
                 sh '''
                     echo "Hello from Jenkins"
+		    git pull origin Patient_branch
                 ''' 
 	    }
         }
