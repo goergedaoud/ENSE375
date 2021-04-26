@@ -12,14 +12,14 @@ pipeline {
             }
         }
         stage("pull")
-        {
+        {/*
         	steps {
 		    sshagent (credentials: ["121a2089-cb31-4727-9787-f94dc66aaaa1"]){
         		sh 'git config --global user.email "goergedaoud@gmail.com"'
 		        sh 'git config --global user.name "goergedaoud"'
 		        sh "git pull https://github.com/goergedaoud/ENSE375.git master --no-edit --allow-unrelated-histories"
 		    }
-		}
+		}*/
 		            
         }
         stage('Build') {     // build the project ./RiskMeter without runing any test  
@@ -32,7 +32,7 @@ pipeline {
                 sh 'mvn -f ./RiskMeter test'
             }
         }
-        stage('Push') {
+        stage('Push') {/*
             steps {
 		    sshagent (credentials: ["121a2089-cb31-4727-9787-f94dc66aaaa1"]){
 		    	sh "git checkout master"
@@ -40,7 +40,7 @@ pipeline {
 		        sh 'git config --global user.name "goergedaoud"'
 		    	sh "git push https://github.com/goergedaoud/ENSE375.git  -f"
 	    	}
-    	    }
+    	    }*/
 	 }
       }
    }
